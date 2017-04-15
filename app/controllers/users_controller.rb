@@ -18,6 +18,26 @@ class UsersController < ApplicationController
     @items = @user.items.group('items.id')
   end
 
+  def followings
+    @user = User.find(params[:id])
+    @users = @user.following_users
+  end
+
+  def followers
+    @user = User.find(params[:id])
+    @users = @user.follower_users
+  end
+
+  def wants
+    @user = User.find(params[:id])
+    @users = @user.want_users
+  end
+  
+  def haves
+    @user = User.find(params[:id])
+    @users = @user.have_users
+  end
+  
   private
   def set_user
     @user = User.find(params[:id])
