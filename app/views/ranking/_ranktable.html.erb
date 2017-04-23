@@ -1,0 +1,25 @@
+<% content_for :head do %>
+  <title><%= user.name %> - モノリスト</title>
+  <meta name="description" content="欲しいものと持っているもののランキング" >
+  <meta name="application-name" content="モノリスト">
+  <meta name="author" content="taiki watanabe">
+<% end %>
+
+<table border = "1">
+  <% if @pop.present? %>
+  <% if params(:type) == "Have" %>
+      <tr>
+        <td>順位</td><td>品名</td><td>持っている人数</td>
+      </tr>
+    <% elsif params(:type) == "Want" %>
+      <tr>
+        <td>順位</td><td>品名</td><td>欲しがっている人数</td>
+      </tr>
+    <% end %>
+    <% @pop.each do |pop| %>
+      <tr>
+        <td><%= pop.id %></td><td><%= pop.name %></td><td><%= pop.num %></td>
+      </tr>
+    <% end %>
+  <end>
+</table>

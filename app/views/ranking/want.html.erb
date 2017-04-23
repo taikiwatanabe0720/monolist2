@@ -1,0 +1,28 @@
+<br>
+<br>
+<h2 align="center">Wantの数多いランキング</h2>
+<br>
+<table border="1" align="center" style="font-size: 100%">
+  <tr bgcolor="#ffffff" align="center">
+    <td>順位</td>
+    <td>商品名</td>
+    <td>Want人数</td>
+  </tr>
+  <% @items.each_with_index do |item, index| %>
+    <% if index == 0 %>
+      <% para ="#ffcc00" %>
+    <% elsif index == 1 %>
+      <% para ="#cfcbbc" %>
+    <% elsif index == 2 %>
+      <% para ="#cc9933" %>
+    <% else %>
+      <% para ="#ffffff" %>
+    <% end %>
+    <tr bgcolor=<%= para %>>
+      <td  align="center" width="50"><%= (index + 1).to_s + '位 ' %></td>
+      <td  width="400"><%= item.title %></td>
+      <td  align="center" width="80"><%= @wants[item.id].to_s + '人' %></td>
+    <tr>
+  <% end %>
+
+</table>
